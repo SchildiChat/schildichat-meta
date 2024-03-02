@@ -12,6 +12,16 @@ else
     echo "Did not find SchildiChat-android, please set SCHILDIDROID_PATH properly"
 fi
 
+if [ -z "$SCHILDINEXT_PATH" ]; then
+    SCHILDINEXT_PATH="$HOME/AndroidStudioProjects/schildichat-android-next"
+fi
+SCHILDINEXT_GRAPHICS="$SCHILDINEXT_PATH/graphics"
+if [ -d "$SCHILDINEXT_GRAPHICS" ]; then
+    rsync -av --del --exclude "*.sh" "$SCHILDINEXT_GRAPHICS/" "$mydir/graphics-android-next/"
+else
+    echo "Did not find SchildiChat-android, please set SCHILDINEXT_PATH properly"
+fi
+
 if [ -z "$SCHILDIDESKTOP_PATH" ]; then
     SCHILDIDESKTOP_PATH="$mydir/../schildichat-desktop/"
 fi
